@@ -33,19 +33,4 @@ class NetworkManager {
         }
         task.resume()
     }
-
-    static func fetchImagesFromNetworkUsing(urlString: String, completion: @escaping (UIImage?) -> Void) {
-        guard let url = URL(string: urlString) else {
-            return
-        }
-
-        let urlRequest = URLRequest(url: url)
-        URLSession.shared.dataTask(with: urlRequest) {data , _, error in
-            guard let data = data, let image = UIImage(data: data) else {
-                return
-            }
-
-            completion(image)
-        }.resume()
-    }
 }
