@@ -13,6 +13,8 @@
 		42835C8D2B6E5A5D0050D11F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 42835C8C2B6E5A5D0050D11F /* Preview Assets.xcassets */; };
 		42835C962B6E5AAD0050D11F /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42835C952B6E5AAD0050D11F /* NetworkManager.swift */; };
 		42835C982B6E5AC40050D11F /* MissionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42835C972B6E5AC40050D11F /* MissionModel.swift */; };
+		42835C9C2B6E7B2A0050D11F /* MissionCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42835C9B2B6E7B2A0050D11F /* MissionCellView.swift */; };
+		42835C9E2B6E7E7F0050D11F /* MissionHistoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42835C9D2B6E7E7F0050D11F /* MissionHistoryViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +25,8 @@
 		42835C8C2B6E5A5D0050D11F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		42835C952B6E5AAD0050D11F /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		42835C972B6E5AC40050D11F /* MissionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionModel.swift; sourceTree = "<group>"; };
+		42835C9B2B6E7B2A0050D11F /* MissionCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionCellView.swift; sourceTree = "<group>"; };
+		42835C9D2B6E7E7F0050D11F /* MissionHistoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MissionHistoryViewModel.swift; path = SpaceX/View/MissionHistoryViewModel.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +98,7 @@
 			isa = PBXGroup;
 			children = (
 				42835C872B6E5A5C0050D11F /* ContentView.swift */,
+				42835C9B2B6E7B2A0050D11F /* MissionCellView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -101,6 +106,7 @@
 		42835C9A2B6E66EC0050D11F /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				42835C9D2B6E7E7F0050D11F /* MissionHistoryViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -177,8 +183,10 @@
 			files = (
 				42835C982B6E5AC40050D11F /* MissionModel.swift in Sources */,
 				42835C962B6E5AAD0050D11F /* NetworkManager.swift in Sources */,
+				42835C9C2B6E7B2A0050D11F /* MissionCellView.swift in Sources */,
 				42835C882B6E5A5C0050D11F /* ContentView.swift in Sources */,
 				42835C862B6E5A5C0050D11F /* SpaceXApp.swift in Sources */,
+				42835C9E2B6E7E7F0050D11F /* MissionHistoryViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
