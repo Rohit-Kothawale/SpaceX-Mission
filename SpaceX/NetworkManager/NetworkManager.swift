@@ -5,7 +5,7 @@ import SwiftUI
 */
 class NetworkManager {
 
-    func fetchMissionDataFromNetwork(_ completion: @escaping ([MissionsDataModel]?) -> Void) {
+    static func fetchMissionDataFromNetwork(_ completion: @escaping ([MissionsDataModel]?) -> Void) {
         let urlString = "https://api.spacexdata.com/v3/launches"
 
         guard let url = URL(string: urlString) else {
@@ -15,7 +15,7 @@ class NetworkManager {
         let urlRequest = URLRequest(url: url)
 
         // Create dataTask to fetch the data from the URL.
-        let task = URLSession.shared.dataTask(with: urlRequest) { data, response, error in
+        let task = URLSession.shared.dataTask(with: urlRequest) { data, _, error in
             guard let data else {
                 return
             }
@@ -32,5 +32,20 @@ class NetworkManager {
 
         }
         task.resume()
+    }
+
+    static func fetchImagesFromNetworkUsing(urlString: String, completion: @escaping (UIImage?) -> Void) {
+        guard let url = URL(string: urlString) else {
+            return
+        }
+
+        let urlRequest = URLRequest(url: url)
+        URLSession.shared.dataTask(with: urlRequest) {data , _, error in
+            guard let data = data, let image = UIImage(data: data) else {
+                return
+            }
+
+            completion(image)
+        }.resume()
     }
 }
