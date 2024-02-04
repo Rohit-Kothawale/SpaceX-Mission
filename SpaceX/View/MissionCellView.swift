@@ -19,16 +19,18 @@ struct MissionCellView: View {
         return formatter
     }()
 
-    struct entryView: View {
+    struct EntryView: View {
         var label: String
         var data: String
         var body: some View {
             HStack(alignment: .top) {
                 Text(label)
+                    .foregroundStyle(.black)
                     .font(.caption2)
                     .fontWeight(.bold)
                 Spacer()
                 Text(data)
+                    .foregroundStyle(.black)
                     .font(.caption2)
             }
         }
@@ -36,7 +38,7 @@ struct MissionCellView: View {
 
     // View
     var body: some View {
-        let date = self.formatter.date(from:missionData.launchDateLocal ?? StringConstants.dummyDateFormat)!
+        let date = self.formatter.date(from:missionData.launchDateLocal ?? StringConstants.dummyDateFormat) ?? Date()
         HStack {
             AsyncImage(url: URL(string: missionData.links?.missionPatchSmall ?? StringConstants.dummyImageUrl)) { image in
                         image.resizable()
@@ -51,11 +53,12 @@ struct MissionCellView: View {
                 .padding()
             VStack(alignment: .leading) {
                 Text(missionData.missionName ?? "")
+                    .foregroundStyle(.black)
                     .fontWeight(.bold)
                     .font(.subheadline)
-                entryView(label: StringConstants.rocketLabel, data: missionData.rocket?.rocketName ?? "")
-                entryView(label: StringConstants.siteNameLabel, data: missionData.launchSite?.siteName ?? "")
-                entryView(label: StringConstants.dateLabel, data: "\(self.expectedFormatter.string(from: date))")
+                EntryView(label: StringConstants.rocketLabel, data: missionData.rocket?.rocketName ?? "")
+                EntryView(label: StringConstants.siteNameLabel, data: missionData.launchSite?.siteName ?? "")
+                EntryView(label: StringConstants.dateLabel, data: "\(self.expectedFormatter.string(from: date))")
             }
         }
         .background(.white)

@@ -16,7 +16,7 @@ struct MissionsDataModel: Decodable, Hashable {
     }
 
     public static func == (lhs: MissionsDataModel, rhs: MissionsDataModel) -> Bool {
-        return lhs.flightNumber == rhs.flightNumber
+        return lhs.missionName == rhs.missionName
     }
 }
 
