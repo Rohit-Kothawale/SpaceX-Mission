@@ -6,7 +6,7 @@ struct ContentView: View {
     init() {
         let navBarAppearance = UINavigationBarAppearance()
         navBarAppearance.configureWithOpaqueBackground()
-        navBarAppearance.largeTitleTextAttributes = [.font : UIFont(name: "Georgia-Bold", size: 50)!]
+        navBarAppearance.largeTitleTextAttributes = [.font : UIFont(name: StringConstants.fontGeorgiaBold, size: 50)!]
         navBarAppearance.backgroundColor = UIColor.systemBlue.withAlphaComponent(0.2)
         UINavigationBar.appearance().scrollEdgeAppearance = navBarAppearance
     }
@@ -16,12 +16,12 @@ struct ContentView: View {
             List {
                 Section {
                     ForEach(viewModel.missionList, id: \.self) { missionData in
-                        NavigationLink(destination: Text("Rohit"), label: {
+                        NavigationLink(destination: MissionDetailView(missionData: missionData), label: {
                             MissionCellView(missionData: missionData)
                         })
                     }
                 } header: {
-                    Text("Mission History")
+                    Text(StringConstants.missionListHeader)
                         .font(.headline)
                         .fontDesign(.rounded)
                         .bold()
@@ -33,7 +33,7 @@ struct ContentView: View {
             .scrollContentBackground(.hidden)
             .background(.clear)
             .shadow(radius: 2)
-            .navigationTitle(Text("SpaceX"))
+            .navigationTitle(Text(StringConstants.navigationTitle))
             .navigationBarTitleDisplayMode(.large)
         }
         .onAppear {

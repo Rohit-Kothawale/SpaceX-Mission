@@ -1,16 +1,44 @@
 import SwiftUI
 
 struct MissionCellView: View {
-    // Constants
-    static let dummyImageUrl = "https://cdn.pixabay.com/photo/2013/07/13/13/14/tiger-160601_1280.png"
 
     // Properties
     var missionData: MissionsDataModel
 
+    // Date formatter
+    var formatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateFormat = StringConstants.jsonDateFormat
+        return formatter
+    }()
+
+    // Expected Date format
+    var expectedFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateFormat = StringConstants.expectedDateFormat
+        return formatter
+    }()
+
+    struct entryView: View {
+        var label: String
+        var data: String
+        var body: some View {
+            HStack(alignment: .top) {
+                Text(label)
+                    .font(.caption2)
+                    .fontWeight(.bold)
+                Spacer()
+                Text(data)
+                    .font(.caption2)
+            }
+        }
+    }
+
     // View
     var body: some View {
+        let date = self.formatter.date(from:missionData.launchDateLocal ?? StringConstants.dummyDateFormat)!
         HStack {
-            AsyncImage(url: URL(string: missionData.links?.missionPatchSmall ?? MissionCellView.dummyImageUrl)) { image in
+            AsyncImage(url: URL(string: missionData.links?.missionPatchSmall ?? StringConstants.dummyImageUrl)) { image in
                         image.resizable()
                     } placeholder: {
                         ProgressView()
@@ -25,12 +53,9 @@ struct MissionCellView: View {
                 Text(missionData.missionName ?? "")
                     .fontWeight(.bold)
                     .font(.subheadline)
-                Text(missionData.rocket?.rocketName ?? "")
-                    .font(.caption)
-                Text(missionData.launchSite?.siteName ?? "")
-                    .font(.caption)
-                Text(missionData.launchDateLocal ?? "")
-                    .font(.caption)
+                entryView(label: StringConstants.rocketLabel, data: missionData.rocket?.rocketName ?? "")
+                entryView(label: StringConstants.siteNameLabel, data: missionData.launchSite?.siteName ?? "")
+                entryView(label: StringConstants.dateLabel, data: "\(self.expectedFormatter.string(from: date))")
             }
         }
         .background(.white)
@@ -39,5 +64,5 @@ struct MissionCellView: View {
 }
 
 #Preview {
-    MissionCellView(missionData: MissionsDataModel(flightNumber: 1, missionName: "Mission Name", launchDateLocal: "Mission Date", rocket: nil, launchSite: nil, links: nil))
+    MissionCellView(missionData: MissionDataModelMock.modelMock)
 }
