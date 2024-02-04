@@ -19,7 +19,7 @@ struct MissionDetailView: View {
     }()
 
     // EntryView
-    struct entryView: View {
+    struct EntryView: View {
         var label: String
         var data: String
         var body: some View {
@@ -35,15 +35,14 @@ struct MissionDetailView: View {
     }
 
     var body: some View {
-        let date = self.formatter.date(from:missionData.launchDateLocal ?? StringConstants.dummyDateFormat)!
+        let date = self.formatter.date(from:missionData.launchDateLocal ?? StringConstants.dummyDateFormat) ?? Date()
 
         VStack {
-            Image("Rocket\(missionData.flightNumber % 10)")
-                .resizable()
-                .frame(height: 250)
-
             // Mission detail List
             List {
+                Image("Rocket\(missionData.flightNumber % 10)")
+                    .resizable()
+                    .frame(height: 250)
                 Section {
                     VStack {
                         HStack {
@@ -55,9 +54,9 @@ struct MissionDetailView: View {
                             .frame(width: 100, height: 100)
 
                             VStack {
-                                entryView(label: StringConstants.nameLabel, data: missionData.missionName ?? "")
-                                entryView(label: StringConstants.launchSuccessLabel, data: String(missionData.launchSuccess ?? true))
-                                entryView(label: StringConstants.dateLabel, data: "\(self.expectedFormatter.string(from: date))")
+                                EntryView(label: StringConstants.nameLabel, data: missionData.missionName ?? "")
+                                EntryView(label: StringConstants.launchSuccessLabel, data: String(missionData.launchSuccess ?? true))
+                                EntryView(label: StringConstants.dateLabel, data: "\(self.expectedFormatter.string(from: date))")
                             }
                         }
 
@@ -73,9 +72,9 @@ struct MissionDetailView: View {
                 // Rocket Section
                 Section {
                     VStack {
-                        entryView(label: StringConstants.nameLabel, data: missionData.rocket?.rocketName ?? "")
-                        entryView(label: StringConstants.idLabel, data: missionData.rocket?.rocketId ?? "")
-                        entryView(label: StringConstants.typeLabel, data: missionData.rocket?.rocketType ?? "")
+                        EntryView(label: StringConstants.nameLabel, data: missionData.rocket?.rocketName ?? "")
+                        EntryView(label: StringConstants.idLabel, data: missionData.rocket?.rocketId ?? "")
+                        EntryView(label: StringConstants.typeLabel, data: missionData.rocket?.rocketType ?? "")
                     }
                 } header: {
                     Text(StringConstants.rocketSectionLabel)
@@ -86,9 +85,9 @@ struct MissionDetailView: View {
                 // Site Details Section
                 Section {
                     VStack {
-                        entryView(label: StringConstants.nameLabel, data: missionData.launchSite?.siteName ?? "")
-                        entryView(label: StringConstants.idLabel, data: missionData.launchSite?.siteId ?? "")
-                        entryView(label: StringConstants.addressLabel, data: missionData.launchSite?.siteNameLong ?? "")
+                        EntryView(label: StringConstants.nameLabel, data: missionData.launchSite?.siteName ?? "")
+                        EntryView(label: StringConstants.idLabel, data: missionData.launchSite?.siteId ?? "")
+                        EntryView(label: StringConstants.addressLabel, data: missionData.launchSite?.siteNameLong ?? "")
                     }
                 } header: {
                     Text(StringConstants.siteDetailHeader)
@@ -100,8 +99,8 @@ struct MissionDetailView: View {
                 if let launchSuccess = missionData.launchSuccess, !launchSuccess {
                     Section {
                         VStack {
-                            entryView(label: StringConstants.reasonLabel, data: missionData.launchFailureDetails?.reason ?? "")
-                            entryView(label: StringConstants.timeLabel, data: String(missionData.launchFailureDetails?.time ?? 0)+StringConstants.timeUnitSuffixString)
+                            EntryView(label: StringConstants.reasonLabel, data: missionData.launchFailureDetails?.reason ?? "")
+                            EntryView(label: StringConstants.timeLabel, data: String(missionData.launchFailureDetails?.time ?? 0)+StringConstants.timeUnitSuffixString)
                         }
                     } header: {
                         Text(StringConstants.launchfailureHeader)
@@ -119,6 +118,5 @@ struct MissionDetailView: View {
 }
 
 #Preview {
-//    MissionDetailView(missionData: MissionsDataModel(flightNumber: 1, missionName: "Mission Name", launchDateLocal: "Mission Date", rocket: nil, launchSite: nil, links: nil))
-    ContentView()
+    MissionDetailView(missionData: MissionDataModelMock.modelMock)
 }
