@@ -15,6 +15,9 @@
 		42835C982B6E5AC40050D11F /* MissionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42835C972B6E5AC40050D11F /* MissionModel.swift */; };
 		42835C9C2B6E7B2A0050D11F /* MissionCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42835C9B2B6E7B2A0050D11F /* MissionCellView.swift */; };
 		42835C9E2B6E7E7F0050D11F /* MissionHistoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42835C9D2B6E7E7F0050D11F /* MissionHistoryViewModel.swift */; };
+		42835CA22B6F9A850050D11F /* MissionDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42835CA12B6F9A850050D11F /* MissionDetailView.swift */; };
+		42835CA42B6FB0830050D11F /* MissionDataModelMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42835CA32B6FB0830050D11F /* MissionDataModelMock.swift */; };
+		42835CA82B6FDE0D0050D11F /* StringConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42835CA72B6FDE0D0050D11F /* StringConstants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,7 +29,10 @@
 		42835C952B6E5AAD0050D11F /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		42835C972B6E5AC40050D11F /* MissionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionModel.swift; sourceTree = "<group>"; };
 		42835C9B2B6E7B2A0050D11F /* MissionCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionCellView.swift; sourceTree = "<group>"; };
-		42835C9D2B6E7E7F0050D11F /* MissionHistoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MissionHistoryViewModel.swift; path = SpaceX/View/MissionHistoryViewModel.swift; sourceTree = SOURCE_ROOT; };
+		42835C9D2B6E7E7F0050D11F /* MissionHistoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MissionHistoryViewModel.swift; path = SpaceX/ViewModel/MissionHistoryViewModel.swift; sourceTree = SOURCE_ROOT; };
+		42835CA12B6F9A850050D11F /* MissionDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionDetailView.swift; sourceTree = "<group>"; };
+		42835CA32B6FB0830050D11F /* MissionDataModelMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionDataModelMock.swift; sourceTree = "<group>"; };
+		42835CA72B6FDE0D0050D11F /* StringConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringConstants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,10 +65,12 @@
 		42835C842B6E5A5C0050D11F /* SpaceX */ = {
 			isa = PBXGroup;
 			children = (
+				42835CA62B6FDD900050D11F /* StringConstants */,
 				42835C932B6E5A8A0050D11F /* Model */,
 				42835C992B6E66DB0050D11F /* View */,
-				42835C9A2B6E66EC0050D11F /* ViewModel */,
+				42835CA02B6F99FD0050D11F /* ViewModel */,
 				42835C942B6E5A970050D11F /* NetworkManager */,
+				42835CA52B6FB10C0050D11F /* Mocks */,
 				42835C852B6E5A5C0050D11F /* SpaceXApp.swift */,
 				42835C892B6E5A5D0050D11F /* Assets.xcassets */,
 				42835C8B2B6E5A5D0050D11F /* Preview Content */,
@@ -99,16 +107,33 @@
 			children = (
 				42835C872B6E5A5C0050D11F /* ContentView.swift */,
 				42835C9B2B6E7B2A0050D11F /* MissionCellView.swift */,
+				42835CA12B6F9A850050D11F /* MissionDetailView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
 		};
-		42835C9A2B6E66EC0050D11F /* ViewModel */ = {
+		42835CA02B6F99FD0050D11F /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
 				42835C9D2B6E7E7F0050D11F /* MissionHistoryViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		42835CA52B6FB10C0050D11F /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				42835CA32B6FB0830050D11F /* MissionDataModelMock.swift */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
+		42835CA62B6FDD900050D11F /* StringConstants */ = {
+			isa = PBXGroup;
+			children = (
+				42835CA72B6FDE0D0050D11F /* StringConstants.swift */,
+			);
+			path = StringConstants;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -181,9 +206,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				42835CA22B6F9A850050D11F /* MissionDetailView.swift in Sources */,
 				42835C982B6E5AC40050D11F /* MissionModel.swift in Sources */,
+				42835CA82B6FDE0D0050D11F /* StringConstants.swift in Sources */,
 				42835C962B6E5AAD0050D11F /* NetworkManager.swift in Sources */,
 				42835C9C2B6E7B2A0050D11F /* MissionCellView.swift in Sources */,
+				42835CA42B6FB0830050D11F /* MissionDataModelMock.swift in Sources */,
 				42835C882B6E5A5C0050D11F /* ContentView.swift in Sources */,
 				42835C862B6E5A5C0050D11F /* SpaceXApp.swift in Sources */,
 				42835C9E2B6E7E7F0050D11F /* MissionHistoryViewModel.swift in Sources */,

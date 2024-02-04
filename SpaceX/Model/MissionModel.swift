@@ -6,7 +6,10 @@ struct MissionsDataModel: Decodable, Hashable {
     let launchDateLocal: String?
     let rocket: RocketDataModel?
     let launchSite: LaunchSiteDataModel?
+    let launchSuccess: Bool?
+    let launchFailureDetails: LaunchDetailDataModel?
     let links: MissionLinksDataModel?
+    let details: String?
 
     public func hash(into hasher: inout Hasher) {
         return hasher.combine(flightNumber)
@@ -32,4 +35,9 @@ struct LaunchSiteDataModel: Decodable {
 struct MissionLinksDataModel: Decodable {
     let missionPatch: String?
     let missionPatchSmall: String?
+}
+
+struct LaunchDetailDataModel: Decodable {
+    let time: Int?
+    let reason: String?
 }
