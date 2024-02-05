@@ -5,7 +5,7 @@ class StringConstants {
     static let navigationTitle = "SpaceX 🚀"
 
     // MissionCellView constants
-    static let dummyImageUrl = "https://cdn.pixabay.com/photo/2013/07/13/13/14/tiger-160601_1280.png"
+    static let dummyImageUrl = "https://images2.imgbox.com/9a/96/nLppz9HW_o.png"
     static let jsonDateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
     static let expectedDateFormat = "dd-MM-yyyy"
     static let dummyDateFormat = "2006-03-25T10:30:00+12:00"
