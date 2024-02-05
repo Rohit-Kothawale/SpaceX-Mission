@@ -5,6 +5,8 @@ struct ContentView: View {
     @State var selectedMission: MissionsDataModel?
     @State var currentOrientation = UIDevice.current.orientation
 
+    @Environment(\.colorScheme) var colorScheme
+
     init() {
         let navBarAppearance = UINavigationBarAppearance()
         navBarAppearance.configureWithOpaqueBackground()
@@ -54,7 +56,7 @@ struct ContentView: View {
                             .font(.headline)
                             .fontDesign(.rounded)
                             .bold()
-                            .foregroundStyle(.black)
+                            .foregroundStyle(colorScheme == .dark ? .white : .black)
                     }
                 }
                 .scrollContentBackground(.hidden)

@@ -1,6 +1,7 @@
 import SwiftUI
 
 struct MissionCellView: View {
+    @Environment(\.colorScheme) var colorScheme
 
     // Properties
     var missionData: MissionsDataModel
@@ -20,17 +21,19 @@ struct MissionCellView: View {
     }()
 
     struct EntryView: View {
+        @Environment(\.colorScheme) var colorScheme
+
         var label: String
         var data: String
         var body: some View {
             HStack(alignment: .top) {
                 Text(label)
-                    .foregroundStyle(.black)
+                    .foregroundStyle(colorScheme == .dark ? .white : .black)
                     .font(.caption2)
                     .fontWeight(.bold)
                 Spacer()
                 Text(data)
-                    .foregroundStyle(.black)
+                    .foregroundStyle(colorScheme == .dark ? .white : .black)
                     .font(.caption2)
             }
         }
@@ -47,13 +50,13 @@ struct MissionCellView: View {
                     }
                 .aspectRatio(contentMode: .fit)
                 .frame(width: 100, height: 100)
-                .background(.white)
+                .background(colorScheme == .dark ? .black : .white)
                 .cornerRadius(10)
                 .shadow(radius: 3)
                 .padding()
             VStack(alignment: .leading) {
                 Text(missionData.missionName ?? "")
-                    .foregroundStyle(.black)
+                    .foregroundStyle(colorScheme == .dark ? .white : .black)
                     .fontWeight(.bold)
                     .font(.subheadline)
                 EntryView(label: StringConstants.rocketLabel, data: missionData.rocket?.rocketName ?? "")
@@ -61,7 +64,7 @@ struct MissionCellView: View {
                 EntryView(label: StringConstants.dateLabel, data: "\(self.expectedFormatter.string(from: date))")
             }
         }
-        .background(.white)
+        .background(colorScheme == .dark ? .clear : .white)
         .cornerRadius(10)
     }
 }
