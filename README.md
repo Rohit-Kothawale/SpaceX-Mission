@@ -66,7 +66,7 @@ To get started with the SpaceX-Mission iOS application, follow these steps:
 
 1. Clone the repository:
    ```bash
-     git clone https://github.com/your-username/SpaceX-Mission-iOS.git
+     git clone https://github.com/Rohit-Kothawale/SpaceX-Mission.git
    ```
 2. Change the directory:
    ```bash
