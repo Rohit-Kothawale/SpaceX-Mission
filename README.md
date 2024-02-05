@@ -58,15 +58,15 @@ To get started with the SpaceX-Mission iOS application, follow these steps:
 
 # Supported Form Factors
 - Portrait Mode
-- Launches listed and ordered from newest to oldest.
-- Click on a launch for detailed information.
+  - Launches listed and ordered from newest to oldest.
+  - Click on a launch for detailed information.
 - Landscape Mode
-- Large Devices:
-  - Slider/Detail view.
-  - Selected launch item remains highlighted in the list.
-  - Details view is populated with selected launch details.
-- Small Devices:
-  - Display like portrait mode.
+  - Large Devices:
+    - Slider/Detail view.
+    - Selected launch item remains highlighted in the list.
+    - Details view is populated with selected launch details.
+  - Small Devices:
+    - Display like portrait mode.
 
 # Rotation Support
 - Supports orientation changes on all form factors.
